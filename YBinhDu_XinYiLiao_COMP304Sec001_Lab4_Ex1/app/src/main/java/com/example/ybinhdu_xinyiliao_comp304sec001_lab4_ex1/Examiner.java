@@ -7,6 +7,14 @@ import androidx.room.PrimaryKey;
 @Entity
 public class Examiner {
 
+    public int getExaminerId() {
+        return examinerId;
+    }
+
+    public void setExaminerId(int examinerId) {
+        this.examinerId = examinerId;
+    }
+
     @PrimaryKey
     private int examinerId;
 
