@@ -26,19 +26,5 @@
         android:onClick="LoginButton"/>
 
 
-    <!--
-    <Button
-        android:id="@+id/_btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="13dp"
-        android:layout_marginBottom="125dp"
-        android:onClick="LoginButton"
-        android:text="@string/login"
-        android:textAlignment="center"
-        android:textSize="25dp" />-->
-
 
 </RelativeLayout>

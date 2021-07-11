@@ -12,37 +12,42 @@ import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Button btnLogin;
-    EditText editUsername, editPassword;
-    String username  = "";
-    String password = "";
+    //Button btnLogin;
+    //EditText editUsername, editPassword;
+    //String username;
+    //String password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        editUsername = findViewById(R.id._editUsername);
-        editPassword = findViewById(R.id._editPassword);
-        btnLogin = findViewById(R.id._btnLogin);
+        /*
+        editUsername = (EditText) findViewById(R.id._editUsername).getText().To;
+        editPassword = (EditText)  findViewById(R.id._editPassword);
+        btnLogin =  findViewById(R.id._btnLogin);
 
         username = editUsername.getText().toString();
-        password = editPassword.getText().toString();
+        password = editPassword.getText().toString();*/
 
 
     }
 
     public void login(View v){
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        SharedPreferences sharedPreferences = getSharedPreferences("MyShared",0);
-        SharedPreferences.Editor prefEditor = sharedPreferences.edit();
+        Intent intent = new Intent(LoginActivity.this, NavigationActivity.class);
 
-        if (username.isEmpty() && password.isEmpty()){
-            Toast.makeText(this, "Username/Password cannot be null!", Toast.LENGTH_SHORT).show();
+        String username = ((EditText) findViewById(R.id._editUsername)).getText().toString();
+        String password = ((EditText) findViewById(R.id._editPassword)).getText().toString();
 
-        } else {
-            prefEditor.putString("ExaminerId", username);
-            prefEditor.commit();
+        if(username.isEmpty() | password.isEmpty()){
+            Toast.makeText(this, "Error: Username/Password cannot bt Empty!", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            SharedPreferences sharedPreferences = getSharedPreferences("MyShared", 0);
+            SharedPreferences.Editor prefEdit = sharedPreferences.edit();
+
+            prefEdit.putString("ExaminerId", username);
+            prefEdit.commit();
             startActivity(intent);
         }
 
