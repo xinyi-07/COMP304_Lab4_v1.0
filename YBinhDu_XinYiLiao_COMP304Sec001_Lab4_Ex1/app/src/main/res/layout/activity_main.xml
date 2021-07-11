@@ -2,13 +2,30 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:padding="15dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+
+    <ImageView
+        android:id="@+id/imgViewLogo"
+        android:layout_width="match_parent"
+        android:layout_height="331dp"
+        app:srcCompat="@drawable/logo_car" />
+
+    <Button
+        android:id="@+id/_btnLogin"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Gillian!!!!" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="13dp"
+        android:layout_marginBottom="125dp"
+        android:onClick="LoginButton"
+        android:text="@string/login"
+        android:textAlignment="center"
+        android:textSize="25dp" />
+
+
 </RelativeLayout>
