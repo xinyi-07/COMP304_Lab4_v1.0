@@ -11,5 +11,13 @@
     <color name="RoseWater">#F8C0C8</color>
     <color name="Lilac">#C680E3</color>
     <color name="Pewter">#9731C6</color>
+    <color name="light_red">#B83737</color>
+    <color name="sand">#ECE2C4</color>
+    <color name="green">#61CC34</color>
+    <color name="light_green">#9AD382</color>
+    <color name="my_purple">#A247DA</color>
+    <color name="my_light_purple">#C387E8</color>
+
+    <color name="grey">#8D8A8F</color>
 
 </resources>

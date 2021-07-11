@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewApplicantActivity"
+    android:padding="15dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/Heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add New Applicant"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:fontFamily="cursive"
+            android:background="@color/sand"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textAlignment="center"/>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/applicant_id"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    />
+
+                <EditText
+                    android:id="@+id/edtTxt_ApplicantId"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:hint="Id"
+                    android:enabled="false"/>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/first_name"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+                <EditText
+                    android:id="@+id/edtText_FirstName"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:hint="First Name"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/last_name"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+                <EditText
+                    android:id="@+id/edtText_LastName"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:hint="First Name"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_center"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+                <EditText
+                    android:id="@+id/edtText_TestCenter"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:hint="Test Center"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/examiner_id"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+                <EditText
+                    android:id="@+id/edtText_ExaminerId"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="Examiner Id"
+                    android:enabled="false"
+                    />
+            </TableRow>
+        </TableLayout>
+
+        <Button
+            android:id="@+id/btnSubmitNewApplicant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
+            android:onClick="submitNewApplicant"/>
+
+
+    </LinearLayout>
+</RelativeLayout>

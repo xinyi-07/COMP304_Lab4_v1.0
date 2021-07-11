@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.YBinhDu_XinYiLiao_COMP304Sec001_Lab4_Ex1">
-        <activity android:name=".NavigationActivity"></activity>
+        <activity android:name=".NewTestActivity"></activity>
+        <activity android:name=".ViewAllApplicantsActivity" />
+        <activity android:name=".NewApplicantActivity" />
+        <activity android:name=".NavigationActivity" />
         <activity android:name=".LoginActivity">
 
             <!--

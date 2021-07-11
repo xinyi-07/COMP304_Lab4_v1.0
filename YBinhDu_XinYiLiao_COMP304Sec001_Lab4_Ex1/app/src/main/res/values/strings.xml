@@ -1,4 +1,15 @@
 <resources>
-    <string name="app_name">YBinhDu_XinYiLiao_COMP304Sec001_Lab4_Ex1</string>
+    <string name="app_name">Centen Test Center</string>
     <string name="login">Login</string>
+    <string name="applicant_id">Applicant Id:</string>
+    <string name="submit">Submit</string>
+    <string name="examiner_id">Examiner Id:</string>
+    <string name="test_center">Test Center:</string>
+    <string name="first_name">First Name:</string>
+    <string name="last_name">Last Name</string>
+
+    <string-array name="tasks_list">
+        <item>Enter new Applicant Info</item>
+        <item>View all Applicants</item>
+    </string-array>
 </resources>

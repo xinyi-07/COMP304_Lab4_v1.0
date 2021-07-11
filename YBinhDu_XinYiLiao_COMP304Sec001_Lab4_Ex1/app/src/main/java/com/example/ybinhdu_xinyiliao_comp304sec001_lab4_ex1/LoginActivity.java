@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         String password = ((EditText) findViewById(R.id._editPassword)).getText().toString();
 
         if(username.isEmpty() | password.isEmpty()){
-            Toast.makeText(this, "Error: Username/Password cannot bt Empty!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Error: Username/Password cannot be Empty!", Toast.LENGTH_SHORT).show();
         }
         else{
             SharedPreferences sharedPreferences = getSharedPreferences("MyShared", 0);
