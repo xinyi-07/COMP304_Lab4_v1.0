@@ -7,13 +7,26 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
     <ImageView
-        android:id="@+id/imgViewLogo"
+        android:id="@+id/_imgViewLogo"
         android:layout_width="match_parent"
         android:layout_height="331dp"
-        app:srcCompat="@drawable/logo_car" />
+        android:layout_marginTop="45dp"
+        app:srcCompat="@drawable/logo_car"/>
 
+    <Button
+        android:id="@+id/_btnLogin"
+        android:layout_below="@+id/_imgViewLogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:text="@string/login"
+        android:onClick="LoginButton"/>
+
+
+    <!--
     <Button
         android:id="@+id/_btnLogin"
         android:layout_width="match_parent"
@@ -25,7 +38,7 @@
         android:onClick="LoginButton"
         android:text="@string/login"
         android:textAlignment="center"
-        android:textSize="25dp" />
+        android:textSize="25dp" />-->
 
 
 </RelativeLayout>
