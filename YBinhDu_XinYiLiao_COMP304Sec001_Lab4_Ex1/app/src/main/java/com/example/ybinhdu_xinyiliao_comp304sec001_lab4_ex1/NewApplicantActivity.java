@@ -12,10 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class
-
-
-NewApplicantActivity extends AppCompatActivity {
+public class NewApplicantActivity extends AppCompatActivity {
 
     public static AppDatabase appDB;
     public static String applicant_id;
@@ -54,7 +51,7 @@ NewApplicantActivity extends AppCompatActivity {
     public void submitNewApplicant(View v){
         if(v.getId() == R.id.btnSubmitNewApplicant)
         {
-
+            Intent intent = new Intent(NewApplicantActivity.this, DisplayApplicantActivity.class);
 
             //Call the database:
             appDB = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "applicantDB")
@@ -82,8 +79,6 @@ NewApplicantActivity extends AppCompatActivity {
                 prefEdit.commit();
                 startActivity(intent);*/
 
-
-
                 Applicant newApplicant = new Applicant();
                 newApplicant.setApplicantId(applicantId);
                 newApplicant.setFirstName(firstName);
@@ -93,10 +88,8 @@ NewApplicantActivity extends AppCompatActivity {
 
                 if(newApplicant != null){
 
-                    Intent intent = new Intent(NewApplicantActivity.this, NewTestActivity.class);
-
-                    NewApplicantActivity.appDB.appDao().addApplicant(newApplicant);
                     Toast.makeText(getApplicationContext(), "New applicant added!", Toast.LENGTH_SHORT).show();
+                    NewApplicantActivity.appDB.appDao().addApplicant(newApplicant);
 
                     startActivity(intent);
                 } else {
