@@ -43,50 +43,6 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:text="Test ID:"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    />
-
-                <EditText
-                    android:id="@+id/edtTxt_TestId"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:hint="Test Id"/>
-
-            </TableRow>
-            <!--
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="Test Name:"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    />
-
-                <EditText
-                    android:id="@+id/edtTxt_TestName"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:hint="Test Name"/>
-
-            </TableRow>-->
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
                     android:text="Applicant ID:"
                     android:textColor="@color/black"
                     android:textStyle="bold"
@@ -98,6 +54,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="number"
+                    android:textColor="@color/black"
                     android:hint="Applicant ID"/>
 
             </TableRow>
@@ -119,11 +76,127 @@
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:textColor="@color/black"
                     android:inputType="number"
                     android:hint="Examiner ID"/>
 
             </TableRow>
 
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="25dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Test ID:"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    />
+
+                <EditText
+                    android:id="@+id/edtTxt_TestId"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:textColor="@color/black"
+                    android:inputType="number"
+                    android:hint="Test Id"/>
+
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Test Type:"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/radioBtn_G2"
+                        android:layout_width="209dp"
+                        android:layout_height="30dp"
+                        android:checked="true"
+                        android:onClick="selectTestType"
+                        android:text="G2" />
+
+                    <RadioButton
+                        android:id="@+id/radioBtn_G"
+                        android:layout_width="209dp"
+                        android:layout_height="30dp"
+                        android:onClick="selectTestType"
+                        android:text="G" />
+
+                    <RadioButton
+                        android:id="@+id/radioBtn_Motorcycle"
+                        android:layout_width="209dp"
+                        android:layout_height="30dp"
+                        android:onClick="selectTestType"
+                        android:text="Motorcycle" />
+
+                    <RadioButton
+                        android:id="@+id/radioBtn_Commercial"
+                        android:layout_width="209dp"
+                        android:layout_height="30dp"
+                        android:onClick="selectTestType"
+                        android:text="Commercial" />
+
+                </RadioGroup>
+
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Test Date:"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    />
+
+                <EditText
+                    android:id="@+id/edtTxt_TestDate"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:textColor="@color/black"
+                    android:inputType="date"
+                    android:hint="Test Date"/>
+
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Test Route:"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    />
+
+                <EditText
+                    android:id="@+id/edtTxt_TestRoute"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:textColor="@color/black"
+                    android:inputType="text"
+                    android:hint="Test Route"/>
+
+            </TableRow>
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
@@ -136,11 +209,35 @@
                     android:textStyle="bold"
                     />
 
-                <!--Radio btn for fail and pass-->
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/radioBtn_Pass"
+                        android:layout_width="209dp"
+                        android:layout_height="30dp"
+                        android:checked="true"
+                        android:onClick="selectResult"
+                        android:text="Pass" />
+
+                    <RadioButton
+                        android:id="@+id/radioBtn_Fail"
+                        android:layout_width="209dp"
+                        android:layout_height="30dp"
+                        android:onClick="selectResult"
+                        android:text="Fail" />
+                </RadioGroup>
 
             </TableRow>
-
         </TableLayout>
+
+        <Button
+            android:id="@+id/btn_AddTest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Test"
+            android:onClick="AddTest"/>
 
     </LinearLayout>
 </RelativeLayout>

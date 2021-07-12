@@ -28,12 +28,11 @@ public class NewApplicantActivity extends AppCompatActivity {
     public void submitNewApplicant(View v){
         if(v.getId() == R.id.btnSubmitNewApplicant)
         {
-            Intent intent = new Intent(NewApplicantActivity.this, NewTestActivity.class);
+            Intent intent = new Intent(NewApplicantActivity.this, DisplayApplicantActivity.class);
 
-            //String app_Id = ((EditText) findViewById(R.id.edtTxt_ApplicantId)).getText().toString(); //it is disabled because it is a primary key and should be assigned auto...?
-
+            String app_Id = ((EditText) findViewById(R.id.edtTxt_ApplicantId)).getText().toString();
             String app_firstName = ((EditText) findViewById(R.id.edtText_FirstName)).getText().toString();
-            String app_lastName = ((EditText) findViewById(R.id.edtText_FirstName)).getText().toString();
+            String app_lastName = ((EditText) findViewById(R.id.edtText_LastName)).getText().toString();
             String test_center = ((EditText) findViewById(R.id.edtText_TestCenter)).getText().toString();
 
 
@@ -44,7 +43,7 @@ public class NewApplicantActivity extends AppCompatActivity {
                 SharedPreferences sharedPreferences = getSharedPreferences("MyShared", 0);
                 SharedPreferences.Editor prefEdit = sharedPreferences.edit();
 
-                //prefEdit.putString("ApplicantId", app_Id);
+                prefEdit.putString("ApplicantId", app_Id);
                 prefEdit.putString("App_FirstName", app_firstName);
                 prefEdit.putString("App_LastName", app_lastName);
                 prefEdit.putString("Test_Center", test_center);
