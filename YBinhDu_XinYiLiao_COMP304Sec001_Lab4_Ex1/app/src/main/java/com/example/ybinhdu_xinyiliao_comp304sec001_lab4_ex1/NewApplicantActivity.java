@@ -60,7 +60,7 @@ public class NewApplicantActivity extends AppCompatActivity {
             //Get all info from fields and save it to the variables
             applicantId = Integer.parseInt(editApplicantId.getText().toString()); //it is disabled because it is a primary key and should be assigned auto...?
             firstName = ((EditText) findViewById(R.id.edtText_FirstName)).getText().toString();
-            lastName = ((EditText) findViewById(R.id.edtText_FirstName)).getText().toString();
+            lastName = ((EditText) findViewById(R.id.edtText_LastName)).getText().toString();
             testCenter = ((EditText) findViewById(R.id.edtText_TestCenter)).getText().toString();
             examinerId = Integer.parseInt(editExaminerId.getText().toString());
 
