@@ -22,10 +22,10 @@ public class Test {
     private String testResult;
 
     @ColumnInfo(name = "Test_Date")
-    private Date testDate;
+    private String testDate;
 
-    @ColumnInfo(name = "Test_Out")
-    private Date testrout;
+    @ColumnInfo(name = "Test_Route")
+    private String testRoute;
 
     public int getTestId() {
         return testId;
@@ -59,20 +59,20 @@ public class Test {
         this.testResult = testResult;
     }
 
-    public Date getTestDate() {
+    public String getTestDate() {
         return testDate;
     }
 
-    public void setTestDate(Date testDate) {
+    public void setTestDate(String testDate) {
         this.testDate = testDate;
     }
 
-    public Date getTestrout() {
-        return testrout;
+    public String getTestRoute() {
+        return testRoute;
     }
 
-    public void setTestrout(Date testrout) {
-        this.testrout = testrout;
+    public void setTestRoute(String testRoute) {
+        this.testRoute = testRoute;
     }
 
 
