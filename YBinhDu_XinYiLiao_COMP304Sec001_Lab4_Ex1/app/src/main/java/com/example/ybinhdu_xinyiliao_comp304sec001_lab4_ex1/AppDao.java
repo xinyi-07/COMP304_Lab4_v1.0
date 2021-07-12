@@ -9,4 +9,7 @@ public interface AppDao {
     //Insert -- to add a new examiner user:
     @Insert
     public void addExaminer(Examiner examiner);
+
+    @Insert
+    public void addApplicant(Applicant applicant);
 }
