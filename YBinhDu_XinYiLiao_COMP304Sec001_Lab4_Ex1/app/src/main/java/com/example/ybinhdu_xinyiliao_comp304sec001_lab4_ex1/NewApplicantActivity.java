@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class NewApplicantActivity extends AppCompatActivity {
 
-    public static AppDatabase appDB;
+    public static AppDatabase appDB ;
     public static String applicant_id;
 
 
@@ -32,6 +32,8 @@ public class NewApplicantActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_applicant);
 
+        appDB  = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "applicantDB")
+                .allowMainThreadQueries().build();
         //Call the database:
         //appDB = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "applicantDB")
         //       .allowMainThreadQueries().build();
@@ -54,8 +56,9 @@ public class NewApplicantActivity extends AppCompatActivity {
             Intent intent = new Intent(NewApplicantActivity.this, DisplayApplicantActivity.class);
 
             //Call the database:
-            appDB = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "applicantDB")
-                    .allowMainThreadQueries().build();
+            //appDB = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "applicantDB")
+            //        .allowMainThreadQueries().build();
+            //appDB = AppDatabase.getDatabase(NewApplicantActivity.this);
 
             //Get all info from fields and save it to the variables
             applicantId = Integer.parseInt(editApplicantId.getText().toString()); //it is disabled because it is a primary key and should be assigned auto...?
@@ -89,7 +92,7 @@ public class NewApplicantActivity extends AppCompatActivity {
                 if(newApplicant != null){
 
                     Toast.makeText(getApplicationContext(), "New applicant added!", Toast.LENGTH_SHORT).show();
-                    NewApplicantActivity.appDB.appDao().addApplicant(newApplicant);
+                    appDB.appDao().addApplicant(newApplicant);
 
                     startActivity(intent);
                 } else {
