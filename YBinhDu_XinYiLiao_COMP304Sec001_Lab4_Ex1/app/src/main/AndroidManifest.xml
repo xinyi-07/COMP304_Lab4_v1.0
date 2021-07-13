@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.YBinhDu_XinYiLiao_COMP304Sec001_Lab4_Ex1">
-        <activity android:name=".DisplayApplicantActivity"></activity>
+        <activity android:name=".ViewTestActivity"></activity>
+        <activity android:name=".UpdateApplicantActivity" />
+        <activity android:name=".DisplayApplicantActivity" />
         <activity android:name=".NewTestActivity" />
         <activity android:name=".ViewAllApplicantsActivity" />
         <activity android:name=".NewApplicantActivity" />

@@ -12,7 +12,7 @@
         android:id="@+id/Heading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Navigation page"
+        android:text="Home- page"
         android:textSize="35sp"
         android:textStyle="bold"
         android:textColor="@color/black"

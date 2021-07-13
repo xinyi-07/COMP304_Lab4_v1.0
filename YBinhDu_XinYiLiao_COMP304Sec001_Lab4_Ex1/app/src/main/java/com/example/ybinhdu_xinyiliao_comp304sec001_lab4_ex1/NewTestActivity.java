@@ -8,17 +8,28 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class NewTestActivity extends AppCompatActivity {
 
     String testResult = "Fail";
     String testType = "G2";
+    String applicantId;
+    String examinerId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_test);
+
+        SharedPreferences myPref = getSharedPreferences("MyShared", MODE_PRIVATE);
+
+        applicantId = myPref.getString("ApplicantId", "");
+        ((TextView) findViewById(R.id.edtTxt_ApplicantId)).setText(applicantId);
+
+        examinerId = myPref.getString("ExaminerId", "");
+        ((TextView) findViewById(R.id.edtTxt_ExaminerId)).setText(examinerId);
 
     }
 
@@ -55,7 +66,7 @@ public class NewTestActivity extends AppCompatActivity {
     }
 
     public void AddTest(View v){
-        Intent intent = new Intent(NewTestActivity.this, NavigationActivity.class);
+        Intent intent = new Intent(NewTestActivity.this, ViewTestActivity.class);
 
         String testId = ((EditText) findViewById(R.id.edtTxt_TestId)).getText().toString();
         String testRoute = ((EditText) findViewById(R.id.edtTxt_TestRoute)).getText().toString();

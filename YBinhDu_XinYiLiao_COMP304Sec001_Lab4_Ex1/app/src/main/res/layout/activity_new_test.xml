@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="15dp"
             android:paddingBottom="20dp"
-            android:paddingTop="20dp">
+            android:paddingTop="10dp">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -55,7 +55,8 @@
                     android:ems="10"
                     android:inputType="number"
                     android:textColor="@color/black"
-                    android:hint="Applicant ID"/>
+                    android:hint="Applicant ID"
+                    android:enabled="false"/>
 
             </TableRow>
 
@@ -78,6 +79,7 @@
                     android:ems="10"
                     android:textColor="@color/black"
                     android:inputType="number"
+                    android:enabled="false"
                     android:hint="Examiner ID"/>
 
             </TableRow>
@@ -85,7 +87,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingTop="25dp">
+                android:paddingTop="15dp">
 
                 <TextView
                     android:layout_width="100dp"
@@ -172,7 +174,7 @@
                     android:ems="10"
                     android:textColor="@color/black"
                     android:inputType="date"
-                    android:hint="Test Date"/>
+                    android:hint="MM/DD/YY"/>
 
             </TableRow>
             <TableRow
@@ -214,21 +216,23 @@
                     android:layout_height="wrap_content">
 
                     <RadioButton
-                        android:id="@+id/radioBtn_Pass"
-                        android:layout_width="209dp"
-                        android:layout_height="30dp"
-                        android:checked="true"
-                        android:onClick="selectResult"
-                        android:text="Pass" />
-
-                    <RadioButton
                         android:id="@+id/radioBtn_Fail"
                         android:layout_width="209dp"
                         android:layout_height="30dp"
+                        android:checked="true"
+                        android:textColor="@color/light_red"
                         android:onClick="selectResult"
                         android:text="Fail" />
-                </RadioGroup>
+                    <RadioButton
+                        android:id="@+id/radioBtn_Pass"
+                        android:layout_width="209dp"
+                        android:layout_height="30dp"
+                        android:onClick="selectResult"
+                        android:textColor="#348810"
+                        android:text="Pass" />
 
+
+                </RadioGroup>
             </TableRow>
         </TableLayout>
 
@@ -236,7 +240,7 @@
             android:id="@+id/btn_AddTest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Test"
+            android:text="Submit Test Record"
             android:onClick="AddTest"/>
 
     </LinearLayout>

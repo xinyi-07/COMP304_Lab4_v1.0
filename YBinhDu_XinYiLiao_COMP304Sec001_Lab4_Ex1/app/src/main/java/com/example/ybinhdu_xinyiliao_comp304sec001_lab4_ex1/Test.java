@@ -21,6 +21,9 @@ public class Test {
     @ColumnInfo(name = "Test Result")
     private String testResult;
 
+    @ColumnInfo(name = "Test Type")
+    private String testType;
+
     @ColumnInfo(name = "Test_Date")
     private String testDate;
 
@@ -74,6 +77,12 @@ public class Test {
     public void setTestRoute(String testRoute) {
         this.testRoute = testRoute;
     }
+
+    public String getTestType() {return testType; }
+
+    public void setTestType(String testType) { this.testType = testType; }
+
+
 
 
 }
