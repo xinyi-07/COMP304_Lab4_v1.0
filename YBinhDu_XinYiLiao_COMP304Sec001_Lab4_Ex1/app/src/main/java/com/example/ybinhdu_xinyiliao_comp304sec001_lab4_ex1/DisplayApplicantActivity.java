@@ -21,17 +21,51 @@ public class DisplayApplicantActivity extends AppCompatActivity {
     String app_LastName = "";
     String testCenter = "";
     int examinerId = 0;
+    public AppDatabase appDB;
+
 
     TextView txtApplicantId, txtFirstName, txtLastName, txtTestCenter, txtExaminerId;
 
     //public AppDatabase appDB = AppDatabase.getDatabase(DisplayApplicantActivity.this);
-    public AppDatabase appDB;
+    //public AppDatabase appDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_applicant);
+//        Toast.makeText(getApplicationContext(),"Database does not exist or some errors happens", Toast.LENGTH_SHORT).show();
 
+        SharedPreferences myPref = getSharedPreferences("MyShared", MODE_PRIVATE);
+    try {
+        applicantId = Integer.parseInt( myPref.getString("ApplicantId", ""));
+//        ((TextView) findViewById(R.id.txtView_ApplicantId)).setText(applicantId);
+//        Toast.makeText(getApplicationContext(),"should not be default to 0 " + applicantId, Toast.LENGTH_SHORT).show();
+        appDB  = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "applicantDB")
+                .allowMainThreadQueries().build();
+        List<Applicant> applicants = appDB.appDao().getApplicant(applicantId);
+        Applicant dbApplicant = applicants.get(0);
+
+//        Toast.makeText(getApplicationContext(),"Dlength " + dbApplicant.getFirstName() + dbApplicant.getLastName(), Toast.LENGTH_SHORT).show();
+//        txtApplicantId = findViewById(R.id.txtView_ApplicantId);
+//        txtApplicantId.setText(dbApplicant.getFirstName());
+//
+        ((TextView) findViewById(R.id.txtView_ApplicantId)).setText(dbApplicant.getFirstName());
+//
+//        txtApplicantId = findViewById(R.id.txtView_ApplicantId);
+//        txtExaminerId = findViewById(R.id.txtView_ExaminerId);
+//        txtFirstName = findViewById(R.id.txtView_AppFirstName);
+//        txtTestCenter = findViewById(R.id.txtView_TestCenter);
+//        txtLastName = findViewById(R.id.txtView_App_LastName);
+//
+//        txtFirstName.setText(dbApplicant.getFirstName());
+
+    }catch (Exception e){
+        Toast.makeText(getApplicationContext(),"not good " + e.toString(), Toast.LENGTH_SHORT).show();
+
+    }
+
+
+        /*
         if(NewApplicantActivity.appDB == null){
             Toast.makeText(getApplicationContext(),"Database does not exist or some errors happens", Toast.LENGTH_SHORT).show();
         } else {
@@ -69,17 +103,18 @@ public class DisplayApplicantActivity extends AppCompatActivity {
         //txtFirstName = findViewById(R.id.txtView_AppFirstName);
         //txtTestCenter = findViewById(R.id.txtView_TestCenter);
         //txtLastName = findViewById(R.id.txtView_App_LastName);
-        TextView txtTesting = findViewById(R.id._testingTextview);
+//        TextView txtTesting = findViewById(R.id._testingTextview);
+//
+//
+//        String app = "";
+//        if(applicants.isEmpty()){
+//            app = "List empty???";
+//        } else {
+//            app ="there are records in list";
+//        }
 
-        String app = "";
-        if(applicants.isEmpty()){
-            app = "List empty???";
-        } else {
-            app ="there are records in list";
-        }
 
-
-        String text = "";
+        //String text = "";
 
         //for (Applicant applicant : applicants){
             //applicantId = applicant.getApplicantId();
@@ -92,7 +127,7 @@ public class DisplayApplicantActivity extends AppCompatActivity {
 
         //}
 
-        txtTesting.setText(app);
+        //txtTesting.setText(app);
         //txtApplicantId.setText(applicantId);
         //txtFirstName.setText(app_FirstName);
         //txtLastName.setText(app_LastName);

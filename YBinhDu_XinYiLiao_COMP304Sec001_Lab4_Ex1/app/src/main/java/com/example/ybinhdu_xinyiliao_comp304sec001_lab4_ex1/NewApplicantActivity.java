@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class NewApplicantActivity extends AppCompatActivity {
 
     public static AppDatabase appDB ;
@@ -46,6 +48,20 @@ public class NewApplicantActivity extends AppCompatActivity {
         editExaminerId.setText(examinerIdStr);
 
         editApplicantId = ((EditText) findViewById(R.id.edtTxt_ApplicantId));
+
+        try {
+            List<Applicant> applicants = appDB.appDao().getAllApplicant();
+            int length = applicants.size();
+            if (length != 0){
+                Toast.makeText(getApplicationContext(),"Dlength " + length, Toast.LENGTH_SHORT).show();
+
+            }else{
+                Toast.makeText(getApplicationContext(),"not good " + 12, Toast.LENGTH_SHORT).show();
+
+            }
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(),"Not good " + e.toString(), Toast.LENGTH_LONG).show();
+        }
 
 
     }
@@ -93,6 +109,11 @@ public class NewApplicantActivity extends AppCompatActivity {
 
                     Toast.makeText(getApplicationContext(), "New applicant added!", Toast.LENGTH_SHORT).show();
                     appDB.appDao().addApplicant(newApplicant);
+                    SharedPreferences sharedPreferences = getSharedPreferences("MyShared", 0);
+                    SharedPreferences.Editor prefEdit = sharedPreferences.edit();
+
+                    prefEdit.putString("ApplicantId", applicantId.toString());
+                    prefEdit.commit();
 
                     startActivity(intent);
                 } else {
