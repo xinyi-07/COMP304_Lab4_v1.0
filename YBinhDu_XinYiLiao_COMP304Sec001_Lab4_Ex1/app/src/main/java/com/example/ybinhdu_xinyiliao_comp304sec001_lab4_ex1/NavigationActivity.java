@@ -38,7 +38,7 @@ public class NavigationActivity extends AppCompatActivity {
                 if(position == 0){
                     intent = new Intent(NavigationActivity.this,NewApplicantActivity.class);
                 } else if (position == 1) {
-                    intent = new Intent(NavigationActivity.this,ViewAllApplicantsActivity.class);
+                    intent = new Intent(NavigationActivity.this, SearchApplicantActivity.class);
                 }
                 startActivity(intent);
             }

@@ -36,44 +36,43 @@ public class DisplayApplicantActivity extends AppCompatActivity {
 //        Toast.makeText(getApplicationContext(),"Database does not exist or some errors happens", Toast.LENGTH_SHORT).show();
 
         SharedPreferences myPref = getSharedPreferences("MyShared", MODE_PRIVATE);
-    try {
-        applicantId = Integer.parseInt( myPref.getString("ApplicantId", ""));
-//        ((TextView) findViewById(R.id.txtView_ApplicantId)).setText(applicantId);
-//        Toast.makeText(getApplicationContext(),"should not be default to 0 " + applicantId, Toast.LENGTH_SHORT).show();
-        appDB  = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "applicantDB")
-                .allowMainThreadQueries().build();
-        List<Applicant> applicants = appDB.appDao().getApplicant(applicantId);
-        Applicant dbApplicant = applicants.get(0);
+        try {
+            applicantId = Integer.parseInt( myPref.getString("ApplicantId", ""));
+    //        ((TextView) findViewById(R.id.txtView_ApplicantId)).setText(applicantId);
+    //        Toast.makeText(getApplicationContext(),"should not be default to 0 " + applicantId, Toast.LENGTH_SHORT).show();
+            appDB  = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "applicantDB")
+                    .allowMainThreadQueries().build();
+            List<Applicant> applicants = appDB.appDao().getApplicant(applicantId);
+            Applicant dbApplicant = applicants.get(0);
 
-//        Toast.makeText(getApplicationContext(),"Dlength " + dbApplicant.getFirstName() + dbApplicant.getLastName(), Toast.LENGTH_SHORT).show();
-
-
-        applicantId = dbApplicant.getApplicantId();
-        ((TextView) findViewById(R.id.txtView_ApplicantId)).setText(String.valueOf(applicantId));
+    //        Toast.makeText(getApplicationContext(),"Dlength " + dbApplicant.getFirstName() + dbApplicant.getLastName(), Toast.LENGTH_SHORT).show();
 
 
-        app_FirstName = dbApplicant.getFirstName();
-        txtFirstName =(TextView) findViewById(R.id.txtView_AppFirstName);
-        txtFirstName.setText(app_FirstName);
+            applicantId = dbApplicant.getApplicantId();
+            ((TextView) findViewById(R.id.txtView_ApplicantId)).setText(String.valueOf(applicantId));
 
-        app_LastName = dbApplicant.getLastName();
-        txtLastName = (TextView) findViewById(R.id.txtView_App_LastName);
-        txtLastName.setText(app_LastName);
+            app_FirstName = dbApplicant.getFirstName();
+            txtFirstName =(TextView) findViewById(R.id.txtView_AppFirstName);
+            txtFirstName.setText(app_FirstName);
 
-        testCenter = dbApplicant.getTestCenter();
-        txtTestCenter = (TextView) findViewById(R.id.txtView_TestCenter);
-        txtTestCenter.setText(testCenter);
+            app_LastName = dbApplicant.getLastName();
+            txtLastName = (TextView) findViewById(R.id.txtView_App_LastName);
+            txtLastName.setText(app_LastName);
 
-        examinerId = dbApplicant.getExaminerId();
-        txtExaminerId = (TextView) findViewById(R.id.txtView_ExaminerId);
-        txtExaminerId.setText(String.valueOf(examinerId));
+            testCenter = dbApplicant.getTestCenter();
+            txtTestCenter = (TextView) findViewById(R.id.txtView_TestCenter);
+            txtTestCenter.setText(testCenter);
+
+            examinerId = dbApplicant.getExaminerId();
+            txtExaminerId = (TextView) findViewById(R.id.txtView_ExaminerId);
+            txtExaminerId.setText(String.valueOf(examinerId));
 
 
 
-    }catch (Exception e){
-        Toast.makeText(getApplicationContext(),"not good " + e.toString(), Toast.LENGTH_SHORT).show();
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(),"not good " + e.toString(), Toast.LENGTH_SHORT).show();
 
-    }
+        }
 
 
 

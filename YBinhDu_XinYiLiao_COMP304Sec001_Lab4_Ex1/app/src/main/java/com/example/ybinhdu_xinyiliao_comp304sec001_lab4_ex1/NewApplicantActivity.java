@@ -18,14 +18,8 @@ public class NewApplicantActivity extends AppCompatActivity {
 
     public static AppDatabase appDB ;
     public static String applicant_id;
-
-
-    //
     Button btnAddApplicant;
     EditText editApplicantId, editFirstName, editLastName, editTestCenter, editExaminerId;
-
-    //
-
     String firstName, lastName, testCenter;
     Integer applicantId, examinerId;
 
@@ -36,9 +30,6 @@ public class NewApplicantActivity extends AppCompatActivity {
 
         appDB  = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "applicantDB")
                 .allowMainThreadQueries().build();
-        //Call the database:
-        //appDB = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "applicantDB")
-        //       .allowMainThreadQueries().build();
 
         //initiating a shared preference object
         SharedPreferences myPref = getSharedPreferences("MyShared", MODE_PRIVATE);

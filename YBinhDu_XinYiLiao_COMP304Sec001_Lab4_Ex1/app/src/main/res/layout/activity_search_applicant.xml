@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewAllApplicantsActivity"
+    tools:context=".SearchApplicantActivity"
     android:padding="15dp">
 
 
@@ -17,7 +17,7 @@
             android:id="@+id/Heading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="All Applicants"
+            android:text="Search Applicant"
             android:textSize="35sp"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -28,18 +28,40 @@
             android:textAlignment="center"/>
 
         <TextView
-            android:id="@+id/txt_info"
+            android:id="@+id/T1_Instructions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Enter an applicant's Id to view their test record."
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:layout_below="@id/Heading"
+            android:padding="8dp"/>
 
-        <!--
-        <ListView
-            android:id="@+id/listViewAllApplicants"
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="15dp"/>-->
+            android:orientation="horizontal"
+            android:paddingTop="25dp">
 
+            <EditText
+                android:id="@+id/edtTxt_ApplicantId"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="Enter Applicant Id." />
+
+            <Button
+                android:id="@+id/btn_search"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:onClick="SearchAnApplicant"
+                android:text="Search" />
+
+        </LinearLayout>
 
 
     </LinearLayout>
