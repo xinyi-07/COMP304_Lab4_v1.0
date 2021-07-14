@@ -13,7 +13,7 @@
         <activity android:name=".UpdateApplicantActivity" />
         <activity android:name=".DisplayApplicantActivity" />
         <activity android:name=".NewTestActivity" />
-        <activity android:name=".ViewAllApplicantsActivity" />
+        <activity android:name=".SearchApplicantActivity" />
         <activity android:name=".NewApplicantActivity" />
         <activity android:name=".NavigationActivity" />
         <activity android:name=".LoginActivity">

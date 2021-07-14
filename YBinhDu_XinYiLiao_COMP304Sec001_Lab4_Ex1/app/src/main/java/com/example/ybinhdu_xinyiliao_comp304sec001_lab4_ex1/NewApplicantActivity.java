@@ -18,14 +18,8 @@ public class NewApplicantActivity extends AppCompatActivity {
 
     public static AppDatabase appDB ;
     public static String applicant_id;
-
-
-    //
     Button btnAddApplicant;
     EditText editApplicantId, editFirstName, editLastName, editTestCenter, editExaminerId;
-
-    //
-
     String firstName, lastName, testCenter;
     Integer applicantId, examinerId;
 
@@ -36,9 +30,6 @@ public class NewApplicantActivity extends AppCompatActivity {
 
         appDB  = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "applicantDB")
                 .allowMainThreadQueries().build();
-        //Call the database:
-        //appDB = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "applicantDB")
-        //       .allowMainThreadQueries().build();
 
         //initiating a shared preference object
         SharedPreferences myPref = getSharedPreferences("MyShared", MODE_PRIVATE);
@@ -77,7 +68,7 @@ public class NewApplicantActivity extends AppCompatActivity {
             //appDB = AppDatabase.getDatabase(NewApplicantActivity.this);
 
             //Get all info from fields and save it to the variables
-            applicantId = Integer.parseInt(editApplicantId.getText().toString()); //it is disabled because it is a primary key and should be assigned auto...?
+            applicantId = Integer.parseInt(editApplicantId.getText().toString());
             firstName = ((EditText) findViewById(R.id.edtText_FirstName)).getText().toString();
             lastName = ((EditText) findViewById(R.id.edtText_LastName)).getText().toString();
             testCenter = ((EditText) findViewById(R.id.edtText_TestCenter)).getText().toString();
@@ -109,6 +100,7 @@ public class NewApplicantActivity extends AppCompatActivity {
 
                     Toast.makeText(getApplicationContext(), "New applicant added!", Toast.LENGTH_SHORT).show();
                     appDB.appDao().addApplicant(newApplicant);
+
                     SharedPreferences sharedPreferences = getSharedPreferences("MyShared", 0);
                     SharedPreferences.Editor prefEdit = sharedPreferences.edit();
 
