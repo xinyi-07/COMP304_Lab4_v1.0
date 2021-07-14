@@ -69,25 +69,26 @@ public class NewApplicantActivity extends AppCompatActivity {
     public void submitNewApplicant(View v){
         if(v.getId() == R.id.btnSubmitNewApplicant)
         {
-            Intent intent = new Intent(NewApplicantActivity.this, DisplayApplicantActivity.class);
+            try{
+                Intent intent = new Intent(NewApplicantActivity.this, DisplayApplicantActivity.class);
 
-            //Call the database:
-            //appDB = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "applicantDB")
-            //        .allowMainThreadQueries().build();
-            //appDB = AppDatabase.getDatabase(NewApplicantActivity.this);
+                //Call the database:
+                //appDB = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "applicantDB")
+                //        .allowMainThreadQueries().build();
+                //appDB = AppDatabase.getDatabase(NewApplicantActivity.this);
 
-            //Get all info from fields and save it to the variables
-            applicantId = Integer.parseInt(editApplicantId.getText().toString()); //it is disabled because it is a primary key and should be assigned auto...?
-            firstName = ((EditText) findViewById(R.id.edtText_FirstName)).getText().toString();
-            lastName = ((EditText) findViewById(R.id.edtText_LastName)).getText().toString();
-            testCenter = ((EditText) findViewById(R.id.edtText_TestCenter)).getText().toString();
-            examinerId = Integer.parseInt(editExaminerId.getText().toString());
+                //Get all info from fields and save it to the variables
+                applicantId = Integer.parseInt(editApplicantId.getText().toString()); //it is disabled because it is a primary key and should be assigned auto...?
+                firstName = ((EditText) findViewById(R.id.edtText_FirstName)).getText().toString();
+                lastName = ((EditText) findViewById(R.id.edtText_LastName)).getText().toString();
+                testCenter = ((EditText) findViewById(R.id.edtText_TestCenter)).getText().toString();
+                examinerId = Integer.parseInt(editExaminerId.getText().toString());
 
 
-            if(firstName.isEmpty() | lastName.isEmpty() | testCenter.isEmpty()){
-                Toast.makeText(this, "Error: Empty fields found!", Toast.LENGTH_SHORT).show();
-            }
-            else{
+                if(firstName.isEmpty() | lastName.isEmpty() | testCenter.isEmpty()){
+                    Toast.makeText(this, "Error: Empty fields found!", Toast.LENGTH_SHORT).show();
+                }
+                else {
                 /*SharedPreferences sharedPreferences = getSharedPreferences("MyShared", 0);
                 SharedPreferences.Editor prefEdit = sharedPreferences.edit();
 
@@ -98,29 +99,32 @@ public class NewApplicantActivity extends AppCompatActivity {
                 prefEdit.commit();
                 startActivity(intent);*/
 
-                Applicant newApplicant = new Applicant();
-                newApplicant.setApplicantId(applicantId);
-                newApplicant.setFirstName(firstName);
-                newApplicant.setLastName(lastName);
-                newApplicant.setTestCenter(testCenter);
-                newApplicant.setExaminerId(examinerId);
+                    Applicant newApplicant = new Applicant();
+                    newApplicant.setApplicantId(applicantId);
+                    newApplicant.setFirstName(firstName);
+                    newApplicant.setLastName(lastName);
+                    newApplicant.setTestCenter(testCenter);
+                    newApplicant.setExaminerId(examinerId);
 
-                if(newApplicant != null){
+                    if (newApplicant != null) {
 
-                    Toast.makeText(getApplicationContext(), "New applicant added!", Toast.LENGTH_SHORT).show();
-                    appDB.appDao().addApplicant(newApplicant);
-                    SharedPreferences sharedPreferences = getSharedPreferences("MyShared", 0);
-                    SharedPreferences.Editor prefEdit = sharedPreferences.edit();
+                        Toast.makeText(getApplicationContext(), "New applicant added!", Toast.LENGTH_SHORT).show();
+                        appDB.appDao().addApplicant(newApplicant);
+                        SharedPreferences sharedPreferences = getSharedPreferences("MyShared", 0);
+                        SharedPreferences.Editor prefEdit = sharedPreferences.edit();
 
-                    prefEdit.putString("ApplicantId", applicantId.toString());
-                    prefEdit.commit();
+                        prefEdit.putString("ApplicantId", applicantId.toString());
+                        prefEdit.commit();
 
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(getApplicationContext(), "Error! New applicant not added!", Toast.LENGTH_SHORT).show();
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Error! New applicant not added!", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
-
+            } catch (Exception e){
+                Toast.makeText(getApplicationContext(), "Error!!" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                System.out.println(e.getMessage());
             }
         }
     }

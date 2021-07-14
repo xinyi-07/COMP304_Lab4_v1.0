@@ -16,9 +16,15 @@ public interface AppDao {
     @Insert
     public void addApplicant(Applicant applicant);
 
+
+
     @Query("select * from applicant where applicantId = :applicantId")
     public List<Applicant> getApplicant(int applicantId);
 
     @Query("select * from applicant")
     public List<Applicant> getAllApplicant();
+
+
+    @Insert
+    public void addNewTest(Test test);
 }
